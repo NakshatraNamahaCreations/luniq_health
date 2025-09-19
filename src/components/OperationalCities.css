@@ -1,0 +1,214 @@
+/* Operational Cities Section Styles */
+.operational-cities {
+  padding: 4rem 0;
+  background: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+}
+
+.cities-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.cities-content {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  min-height: 500px;
+}
+
+.cities-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.india-map {
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  position: relative;
+}
+
+.india-map:hover {
+  transform: scale(1.05) translateY(-8px);
+  filter: 
+    drop-shadow(0 8px 25px rgba(0, 0, 0, 0.15))
+    drop-shadow(0 4px 12px rgba(32, 178, 170, 0.2))
+    drop-shadow(0 2px 6px rgba(44, 90, 160, 0.1))
+    brightness(1.1)
+    contrast(1.1)
+    saturate(1.1);
+}
+
+.india-map::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0.05) 25%, 
+    rgba(255, 255, 255, 0.02) 50%, 
+    rgba(0, 0, 0, 0.05) 75%, 
+    rgba(0, 0, 0, 0.1) 100%);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.india-map:hover::before {
+  opacity: 1;
+}
+
+.india-map::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, 
+    rgba(32, 178, 170, 0.3) 0%, 
+    rgba(44, 90, 160, 0.2) 50%, 
+    rgba(32, 178, 170, 0.3) 100%);
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(1px);
+}
+
+.india-map:hover::after {
+  opacity: 1;
+}
+
+.cities-right {
+  flex: 1;
+  padding: 2rem 0;
+}
+
+.cities-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c5aa0;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cities-number {
+  color: #20b2aa;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.cities-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .cities-content {
+    gap: 3rem;
+  }
+  
+  .cities-title {
+    font-size: 2rem;
+  }
+  
+  .cities-description {
+    font-size: 0.95rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .operational-cities {
+    padding: 3rem 0;
+  }
+  
+  .cities-container {
+    padding: 0 1.5rem;
+  }
+  
+  .cities-content {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .cities-left {
+    order: 2;
+  }
+  
+  .cities-right {
+    order: 1;
+    padding: 0;
+  }
+  
+  .cities-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cities-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .india-map {
+    max-height: 350px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .operational-cities {
+    padding: 2.5rem 0;
+  }
+  
+  .cities-container {
+    padding: 0 1rem;
+  }
+  
+  .cities-content {
+    gap: 1.5rem;
+  }
+  
+  .cities-title {
+    font-size: 1.6rem; /* Increased for better readability */
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+  
+  .cities-number {
+    margin-top: 0.3rem;
+  }
+  
+  .cities-description {
+    font-size: 0.9rem; /* Increased for better readability */
+    line-height: 1.5;
+    padding: 0 0.5rem;
+  }
+  
+  .india-map {
+    max-height: 300px; /* Slightly increased */
+    border-radius: 8px; /* Added subtle border radius */
+  }
+}

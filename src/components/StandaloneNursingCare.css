@@ -1,0 +1,538 @@
+/* Nursing Care Page Styles */
+.nursing-care-page {
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Hero Section */
+.nursing-hero {
+  background: linear-gradient(135deg, #2c5aa0 0%, #20b2aa 100%);
+  color: white;
+  padding: 6rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.nursing-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="nursing-pattern" width="100" height="100" patternUnits="userSpaceOnUse"><rect x="10" y="10" width="8" height="8" fill="white" opacity="0.1"/><rect x="30" y="30" width="6" height="6" fill="white" opacity="0.08"/><rect x="50" y="50" width="4" height="4" fill="white" opacity="0.06"/></pattern></defs><rect width="100" height="100" fill="url(%23nursing-pattern)"/></svg>');
+  opacity: 0.3;
+}
+
+.nursing-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.nursing-hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.nursing-hero-subtitle {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Main Content */
+.nursing-main-content {
+  padding: 5rem 0;
+}
+
+.nursing-intro {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.nursing-intro h2 {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #2c5aa0 0%, #20b2aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.nursing-intro p {
+  font-size: 1.1rem;
+  color: #000000;
+  line-height: 1.4;
+  max-width: 900px;
+  margin: 0 auto 0.8rem;
+}
+
+
+.hero-content-nursing {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start !important; 
+  width: 100%;
+  height: 100%;
+  padding: 0 2rem;
+}
+
+.hero-text {
+  text-align: left;
+  max-width: 500px;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.hero-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  margin-bottom: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #ffffff !important;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  margin: 0;
+  letter-spacing: 0.3px;
+  line-height: 1.3;
+}
+
+/* Terms of Nursing Care */
+.nursing-terms {
+  margin-bottom: 5rem;
+}
+
+.nursing-terms h2 {
+  font-size: 2.2rem;
+  background: linear-gradient(135deg, #2c5aa0 0%, #20b2aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.terms-list {
+  margin-top: 2rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.term-item {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid #2c5aa0;
+}
+
+.term-item h3 {
+  font-size: 1.3rem;
+  background: linear-gradient(135deg, #2c5aa0 0%, #20b2aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.term-item p {
+  color: #000000;
+  line-height: 1.4;
+  font-size: 1rem;
+}
+
+/* Nursing Meaning Section */
+.nursing-meaning {
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
+.nursing-meaning h2 {
+  font-size: 2.2rem;
+  background: linear-gradient(135deg, #2c5aa0 0%, #20b2aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.nursing-meaning > p {
+  font-size: 1.1rem;
+  color: #000000;
+  line-height: 1.4;
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+}
+
+.nursing-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.info-card {
+  background: #f0f8ff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-top: 4px solid #2c5aa0;
+  border-left: 4px solid #20b2aa;
+  text-align: left;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(32, 178, 170, 0.15);
+}
+
+.info-card h3 {
+  font-size: 1.2rem;
+  color: #2c5aa0;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.info-card p {
+  color: #000000;
+  line-height: 1.6;
+  font-size: 1rem;
+  text-align: left;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Post Hospital Care */
+.post-hospital-care {
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
+.post-hospital-care h2 {
+  font-size: 2.2rem;
+  background: linear-gradient(135deg, #2c5aa0 0%, #20b2aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.post-hospital-care > p {
+  font-size: 1.1rem;
+  color: #000000;
+  line-height: 1.4;
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+}
+
+.care-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-category {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  padding: 1.5rem;
+  border-radius: 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-category::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #2c5aa0 0%, #20b2aa 100%);
+}
+
+.service-category:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  border-color: #2c5aa0;
+}
+
+.service-category h3 {
+  font-size: 1.2rem;
+  color: #000000;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.service-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-category li {
+  padding: 0.4rem 0;
+  color: #000000;
+  position: relative;
+  padding-left: 1.5rem;
+  font-weight: 500;
+  line-height: 1.3;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.service-category li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #20b2aa;
+  font-weight: bold;
+  font-size: 1.1rem;
+  top: 0.5rem;
+}
+
+.service-category li:hover {
+  color: #2c5aa0;
+  transform: translateX(5px);
+}
+
+/* 24x7 Services */
+.round-clock-services {
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 2rem;
+  border-radius: 0;
+  border: 1px solid #e2e8f0;
+}
+
+.round-clock-content {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.round-clock-text {
+  flex: 1;
+  text-align: left;
+}
+
+.round-clock-text h2 {
+  font-size: 2rem;
+  color: #000000;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.round-clock-text p {
+  font-size: 1rem;
+  color: #000000;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.round-clock-image {
+  flex: 0 0 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nursing-professional-img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 50%;
+  border: 4px solid #2c5aa0;
+  box-shadow: 0 8px 25px rgba(44, 90, 160, 0.2);
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.nursing-professional-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(44, 90, 160, 0.3);
+}
+
+/* CTA Section */
+.nursing-cta {
+  background: linear-gradient(135deg, #2c5aa0 0%, #20b2aa 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.nursing-cta h2 {
+  font-size: 2.2rem;
+  background: linear-gradient(135deg, #2c5aa0 0%, #20b2aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.nursing-cta p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+  padding: 1rem 2rem;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: white;
+  color: #2c5aa0;
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(255, 255, 255, 0.35);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-secondary:hover {
+  background: white;
+  color: #2c5aa0;
+  transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nursing-hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .nursing-hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .nursing-intro h2,
+  .nursing-terms h2,
+  .nursing-meaning h2,
+  .post-hospital-care h2,
+  .round-clock-services h2,
+  .nursing-cta h2 {
+    font-size: 1.8rem;
+  }
+  
+  .nursing-info-grid,
+  .care-services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .round-clock-content {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .round-clock-text {
+    text-align: center;
+  }
+  
+  .nursing-professional-img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nursing-hero {
+    padding: 4rem 0;
+  }
+  
+  .nursing-hero-title {
+    font-size: 2rem;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .term-item,
+  .info-card,
+  .service-category {
+    padding: 1.5rem;
+  }
+}

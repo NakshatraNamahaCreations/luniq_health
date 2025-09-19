@@ -1,0 +1,705 @@
+/* Elder Care Page Styles */
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Hero Section */
+.elder-hero {
+  height: 60vh;
+  position: relative;
+  overflow: hidden;
+  margin-top: 119px; /* Account for navbar height */
+}
+
+.elder-hero-image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-radius: 0; /* Sharp edges - no rounded corners */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Text on the left */
+  width: 100%;
+  height: 100%;
+  padding: 0 2rem;
+}
+
+.hero-text {
+  text-align: left;
+  max-width: 500px;
+}
+
+.hero-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  margin-bottom: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #ffffff !important;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  margin: 0;
+  letter-spacing: 0.3px;
+  line-height: 1.3;
+}
+
+/* Responsive Design for Hero Banner */
+@media screen and (max-width: 1024px) {
+  .elder-hero {
+    height: 50vh;
+    margin-top: 130px; /* Increased margin to ensure hero appears below navbar */
+  }
+  
+  .hero-content {
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .elder-hero {
+    height: 50vh;
+    margin-top: 130px; /* Increased margin to ensure hero appears below navbar */
+    position: relative;
+    z-index: 1; /* Ensure hero appears below navbar */
+  }
+  
+  .hero-content {
+    padding: 1rem 1rem 0 1rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+
+  .hero-text {
+    max-width: 320px;
+  }
+  
+  .hero-title {
+    font-size: 1.6rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.2;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .elder-hero {
+    height: 50vh;
+    margin-top: 130px; /* Increased margin to ensure hero appears below navbar */ /* Consistent with 768px breakpoint */
+    position: relative;
+    z-index: 1; /* Ensure hero appears below navbar */
+  }
+  
+  .hero-content {
+    padding: 0.8rem 0.8rem 0 0.8rem;
+    align-items: flex-start;
+    padding-top: 1.5rem;
+  }
+
+  .hero-text {
+    max-width: 280px;
+  }
+  
+  .hero-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+}
+
+.btn-primary, .btn-outline {
+  padding: 0.5rem 1rem; /* Much smaller padding for desktop */
+  border-radius: 0;
+  font-size: 0.9rem; /* Smaller font size */
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2c5aa0, #20b2aa);
+  color: white;
+  box-shadow: 0 8px 25px rgba(44, 90, 160, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(44, 90, 160, 0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #2c5aa0;
+  border: 2px solid #2c5aa0;
+}
+
+.btn-outline:hover {
+  background: #2c5aa0;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* What is Elder Care Section */
+.elder-about {
+  padding: 6rem 0;
+  background: #ffffff;
+}
+
+.elder-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.elder-left {
+  padding-right: 2rem;
+}
+
+.elder-section-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2c5aa0, #20b2aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.elder-description {
+  font-size: 1.1rem;
+  color: #374151;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.elder-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.elder-image {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  border-radius: 0;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+/* About Elder Care Service Section */
+.elder-service-intro {
+  padding: 5rem 0;
+  background: #f8fafc;
+}
+
+.section-main-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2c5aa0, #20b2aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-main-title::after {
+  content: '';
+  display: block;
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(135deg, #2c5aa0, #20b2aa);
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+.elder-service-description {
+  font-size: 1.2rem;
+  color: #374151;
+  line-height: 1.7;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Why Elder Care Section */
+.why-elder-care {
+  padding: 5rem 0;
+  background: #ffffff;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2c5aa0, #20b2aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.why-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.why-text p {
+  font-size: 1.1rem;
+  color: #374151;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Common Reasons Section */
+.elder-reasons {
+  padding: 5rem 0;
+  background: #f8fafc;
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.reason-card {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 0;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.reason-card:hover {
+  transform: translateY(-5px);
+}
+
+.reason-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c5aa0;
+  margin-bottom: 1.5rem;
+}
+
+.reason-card p {
+  font-size: 1rem;
+  color: #374151;
+  line-height: 1.6;
+}
+
+/* Post Hospital Care Section */
+.post-hospital-care {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #2c5aa0 0%, #20b2aa 100%);
+  color: white;
+}
+
+.care-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: white !important;
+  position: relative;
+}
+
+.care-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+.care-description {
+  font-size: 1.1rem;
+  color: white;
+  text-align: center;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.care-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.care-service-column {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.2rem;
+  border-radius: 0;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.care-service-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.care-service-column li {
+  color: white;
+  margin-bottom: 0.5rem;
+  padding-left: 1.2rem;
+  position: relative;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.care-service-column li::before {
+  content: '✓';
+  color: #20b2aa;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-size: 1rem;
+}
+
+/* Services Section */
+.services-overview {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.services-overview .section-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2c5aa0, #20b2aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.services-overview .section-description {
+  font-size: 1.2rem;
+  color: #374151;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 0;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(44, 90, 160, 0.1);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(44, 90, 160, 0.15);
+}
+
+.service-icon {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.icon-symbol {
+  width: 48px;
+  height: 48px;
+  color: #20b2aa;
+}
+
+.service-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #2c5aa0;
+}
+
+.service-card p {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Departments Section */
+.departments-section {
+  padding: 5rem 0;
+  background: #f8fafc;
+}
+
+.departments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.department-card {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 0;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.department-card:hover {
+  transform: translateY(-5px);
+}
+
+.department-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2c5aa0;
+  margin-bottom: 1.5rem;
+}
+
+.department-card p {
+  font-size: 1rem;
+  color: #374151;
+  line-height: 1.6;
+}
+
+/* CTA Section */
+.elder-cta {
+  padding: 6rem 0 8rem 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.elder-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2320b2aa' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+  z-index: 1;
+}
+
+.elder-cta .container {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-title {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2c5aa0, #20b2aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1.5rem;
+}
+
+.cta-title::after {
+  content: '';
+  display: block;
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(135deg, #2c5aa0, #20b2aa);
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+.cta-subtitle {
+  font-size: 1.3rem;
+  color: #64748b;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem; /* Reduced gap between buttons */
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Specific button styles for CTA section */
+.elder-cta .btn-primary, 
+.elder-cta .btn-outline {
+  padding: 0.5rem 1rem !important; /* Force smaller padding */
+  font-size: 0.9rem !important; /* Force smaller font */
+  border-radius: 0;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+/* Contact Us button styling */
+.elder-cta .btn-outline {
+  background: transparent !important;
+  color: #2c5aa0 !important;
+  border: 2px solid #2c5aa0 !important;
+}
+
+.elder-cta .btn-outline:hover {
+  background: #2c5aa0 !important;
+  color: white !important;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  
+  .elder-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .elder-left {
+    padding-right: 0;
+  }
+  
+  .elder-section-title {
+    font-size: 2.2rem;
+  }
+  
+  .reasons-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .care-services-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .services-overview .section-title {
+    font-size: 2.2rem;
+  }
+  
+  .service-card {
+    padding: 1.5rem;
+    min-height: 250px;
+  }
+  
+  .departments-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn-primary, .btn-outline {
+    width: 100%;
+    max-width: 240px; /* Reduced max width */
+    padding: 0.7rem 1.5rem; /* Further reduced padding for mobile */
+    font-size: 0.95rem; /* Smaller font for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .reason-card {
+    padding: 2rem;
+  }
+  
+  .service-card {
+    padding: 1.5rem;
+  }
+  
+  .department-card {
+    padding: 2rem;
+  }
+}

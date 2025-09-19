@@ -1,0 +1,679 @@
+/* Corporate Health Page Styles */
+.corporate-health-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Hero Section */
+.corporate-health-hero {
+  height: 60vh;
+  position: relative;
+  overflow: hidden;
+  margin-top: 119px; /* Account for navbar height */
+}
+
+.corporate-health-hero-image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-radius: 0; /* Sharp edges - no rounded corners */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Text on the left */
+  width: 100%;
+  height: 100%;
+  padding: 0 2rem;
+}
+
+.hero-text {
+  text-align: left;
+  max-width: 500px;
+}
+
+.hero-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  margin-bottom: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #ffffff !important;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  margin: 0;
+  letter-spacing: 0.3px;
+  line-height: 1.3;
+}
+
+/* Bulk Health Camps & Vaccinations Section */
+.bulk-health-camps {
+  padding: 6rem 0;
+  background: #ffffff;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-text {
+  padding-left: 2rem;
+}
+
+.bulk-health-camps .section-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2c5aa0, #20b2aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.about-description {
+  font-size: 1.1rem;
+  color: #374151;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.highlight-box {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 2rem;
+  border-radius: 0;
+  border-left: 4px solid #20b2aa;
+  margin-top: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.highlight-box h3 {
+  font-size: 1.4rem;
+  color: #2c5aa0;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.highlight-box p {
+  color: #374151;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.about-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 0;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+}
+
+/* Specialized Post Hospital Care Plan Section */
+.post-hospital-care {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #2c5aa0 0%, #20b2aa 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.post-hospital-care::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.05"/><circle cx="50" cy="10" r="0.5" fill="%23ffffff" opacity="0.08"/><circle cx="10" cy="60" r="0.8" fill="%23ffffff" opacity="0.06"/><circle cx="90" cy="40" r="0.6" fill="%23ffffff" opacity="0.04"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+  animation: float 20s ease-in-out infinite;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: white;
+  border-radius: 2px;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  color: white;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.care-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.care-service-column {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.2rem;
+  border-radius: 0;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.care-service-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.care-service-column li {
+  color: white;
+  margin-bottom: 0.5rem;
+  padding-left: 1.2rem;
+  position: relative;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.care-service-column li::before {
+  content: '✓';
+  color: #20b2aa;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-size: 1rem;
+}
+
+/* Services Section */
+.services-overview {
+  padding: 6rem 0;
+  background: #ffffff;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.services-overview .section-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2c5aa0, #20b2aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.services-overview .section-description {
+  font-size: 1.2rem;
+  color: #374151;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 0;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(44, 90, 160, 0.1);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(44, 90, 160, 0.15);
+}
+
+.service-icon {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.icon-symbol {
+  width: 60px;
+  height: 60px;
+  color: #20b2aa;
+}
+
+.service-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #2c5aa0;
+}
+
+.service-card p {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* FAQ Section */
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2c5aa0, #20b2aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.faq-section {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8fffe 0%, #e8f8f5 100%);
+  position: relative;
+}
+
+.faq-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><defs><pattern id="faq-pattern" width="80" height="80" patternUnits="userSpaceOnUse"><circle cx="40" cy="40" r="1.5" fill="%2320b2aa" opacity="0.08"/><circle cx="20" cy="20" r="1" fill="%232c5aa0" opacity="0.06"/><circle cx="60" cy="60" r="0.8" fill="%2320b2aa" opacity="0.05"/></pattern></defs><rect width="1200" height="400" fill="url(%23faq-pattern)"/></svg>');
+  opacity: 0.3;
+  z-index: 1;
+  animation: float 30s ease-in-out infinite;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.faq-item {
+  background: white;
+  margin-bottom: 1rem;
+  border-radius: 0;
+  box-shadow: 0 4px 15px rgba(32, 178, 170, 0.1);
+  overflow: hidden;
+  border: 1px solid rgba(32, 178, 170, 0.1);
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  box-shadow: 0 8px 25px rgba(32, 178, 170, 0.15);
+  transform: translateY(-1px);
+}
+
+.faq-item.active {
+  box-shadow: 0 8px 25px rgba(32, 178, 170, 0.2);
+  border-color: rgba(32, 178, 170, 0.3);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, #20b2aa, #2c5aa0);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.faq-item.active .faq-question {
+  background: linear-gradient(135deg, #2c5aa0, #20b2aa);
+}
+
+.faq-question h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white !important;
+  flex: 1;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.faq-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: white !important;
+  transition: all 0.3s ease;
+}
+
+.faq-icon svg {
+  color: white !important;
+}
+
+.faq-icon svg path {
+  stroke: white !important;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+}
+
+.faq-answer p {
+  padding: 0 2rem 1.5rem 2rem;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+/* CTA Section */
+.corporate-health-cta {
+  padding: 6rem 0 8rem 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2c5aa0, #20b2aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1.5rem;
+}
+
+.cta-description {
+  font-size: 1.2rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  padding: 1rem 2rem;
+  border-radius: 0;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+  min-width: 180px;
+  text-align: center;
+}
+
+.cta-btn.primary {
+  background: linear-gradient(135deg, #2c5aa0, #20b2aa);
+  color: white;
+}
+
+.cta-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(44, 90, 160, 0.3);
+}
+
+.cta-btn.secondary {
+  background: transparent;
+  color: #2c5aa0;
+  border: 2px solid #2c5aa0;
+}
+
+.cta-btn.secondary:hover {
+  background: #2c5aa0;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(44, 90, 160, 0.3);
+}
+
+/* Responsive Design for Hero Banner */
+@media screen and (max-width: 1024px) {
+  .corporate-health-hero {
+    height: 50vh;
+    margin-top: 130px; /* Increased margin to ensure hero appears below navbar */
+  }
+  
+  .hero-content {
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .corporate-health-hero {
+    height: 50vh;
+    margin-top: 130px; /* Increased margin to ensure hero appears below navbar */
+    position: relative;
+    z-index: 1; /* Ensure hero appears below navbar */
+  }
+  
+  .hero-content {
+    padding: 0 1rem;
+  }
+  
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .corporate-health-hero {
+    height: 50vh;
+    margin-top: 130px; /* Increased margin to ensure hero appears below navbar */ /* Consistent with 768px breakpoint */
+    position: relative;
+    z-index: 1; /* Ensure hero appears below navbar */
+  }
+  
+  .hero-content {
+    padding: 0 1rem;
+  }
+  
+  .hero-title {
+    font-size: 1.6rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-text {
+    padding-left: 0;
+  }
+
+  .bulk-health-camps .section-title {
+    font-size: 2.2rem;
+  }
+
+  .about-image img {
+    max-width: 400px;
+  }
+
+  .care-services-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .cta-title {
+    font-size: 2rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .cta-title {
+    font-size: 1.8rem;
+  }
+
+  .service-card {
+    padding: 1.5rem;
+    min-height: 250px;
+  }
+}

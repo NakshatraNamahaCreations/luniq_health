@@ -1,0 +1,27 @@
+/* Service Page Styles - Placeholder Layout */
+.service-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 2rem 0;
+}
+
+.service-content {
+  padding: 2rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.service-content h1 {
+  color: #2c5aa0;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.service-content p {
+  color: #64748b;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+

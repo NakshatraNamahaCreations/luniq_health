@@ -1,0 +1,177 @@
+/* Floating Action Buttons Styles */
+.floating-action-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.fab-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fab {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.fab:active {
+  transform: scale(0.95);
+}
+
+.fab svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+
+/* WhatsApp Button */
+.whatsapp-fab {
+  background: #25D366;
+}
+
+.whatsapp-fab:hover {
+  background: #20BA5A;
+}
+
+/* Phone Button */
+.phone-fab {
+  background: #007AFF;
+}
+
+.phone-fab:hover {
+  background: #0056CC;
+}
+
+/* Number Display Styles */
+.phone-number-display,
+.whatsapp-number-display {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  background: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e5e7eb;
+  min-width: 200px;
+  animation: slideUp 0.3s ease-out;
+}
+
+.phone-number-display {
+  bottom: 150px;
+}
+
+.phone-number-text,
+.whatsapp-number-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.call-button,
+.whatsapp-button {
+  width: 100%;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.call-button {
+  background: #007AFF;
+  color: white;
+}
+
+.call-button:hover {
+  background: #0056CC;
+}
+
+.whatsapp-button {
+  background: #25D366;
+  color: white;
+}
+
+.whatsapp-button:hover {
+  background: #20BA5A;
+}
+
+/* Animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .floating-action-buttons {
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .fab {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .fab svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .phone-number-display,
+  .whatsapp-number-display {
+    min-width: 180px;
+    padding: 12px 16px;
+  }
+  
+  .phone-number-text,
+  .whatsapp-number-text {
+    font-size: 14px;
+  }
+}
+
+/* Hide on very small screens */
+@media (max-width: 480px) {
+  .floating-action-buttons {
+    bottom: 10px;
+    right: 10px;
+  }
+  
+  .fab {
+    width: 42px;
+    height: 42px;
+  }
+  
+  .fab svg {
+    width: 16px;
+    height: 16px;
+  }
+}

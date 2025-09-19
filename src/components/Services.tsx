@@ -1,0 +1,93 @@
+import React from 'react';
+import './Services.css';
+
+const Services: React.FC = () => {
+  const services = [
+    {
+      id: 1,
+      name: "Doctor Consultation",
+      description: "Expert medical consultation at home with qualified doctors",
+      path: "/doctor-consultation"
+    },
+    {
+      id: 2,
+      name: "Nursing Care",
+      description: "Professional nursing care and medical assistance at your doorstep",
+      path: "/nursing"
+    },
+    {
+      id: 3,
+      name: "Lab Tests",
+      description: "Comprehensive laboratory testing and diagnostic services",
+      path: "/lab-tests"
+    },
+    {
+      id: 4,
+      name: "Medical Equipment",
+      description: "Advanced medical equipment rental and support services",
+      path: "/medical-equipment"
+    },
+    {
+      id: 5,
+      name: "Physiotherapy",
+      description: "Rehabilitation and physiotherapy services for recovery and wellness",
+      path: "/physiotherapy"
+    },
+    {
+      id: 6,
+      name: "Elder Care",
+      description: "Comprehensive healthcare services tailored for elderly patients",
+      path: "/elder-care"
+    },
+    {
+      id: 7,
+      name: "Baby Care",
+      description: "Specialized care for mothers and newborns with expert guidance",
+      path: "/baby-care"
+    },
+    {
+      id: 8,
+      name: "Intensive Care",
+      description: "Critical care and intensive medical support at home",
+      path: "/intensive-care"
+    },
+    {
+      id: 9,
+      name: "Corporate Health",
+      description: "Workplace health programs and corporate wellness services",
+      path: "/corporate-health"
+    },
+    {
+      id: 10,
+      name: "Trained Caretakers",
+      description: "Professional trained attendants for continuous patient support",
+      path: "/trained-caretakers"
+    }
+  ];
+
+  return (
+    <div className="services-page">
+      <div className="services-container">
+        <div className="services-header">
+          <h1 className="services-title">Our Healthcare Services</h1>
+          <p className="services-subtitle">
+            Comprehensive healthcare solutions delivered to your doorstep. 
+            Choose from our range of professional medical services.
+          </p>
+        </div>
+        
+        <div className="services-grid">
+          {services.map((service) => (
+            <div key={service.id} className="service-card">
+              <h3 className="service-name">{service.name}</h3>
+              <p className="service-description">{service.description}</p>
+              <a href={service.path} className="service-link">Learn More</a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Services;

@@ -1,0 +1,344 @@
+/* Human Care Experts Section */
+.human-care-experts {
+  width: 100%;
+  background: #f8f9fa;
+  background-image: url('../assets/background.png');
+  background-size: 80%;
+  background-position: 45% 10%;
+  background-repeat: no-repeat;
+  padding: 2rem 0 5rem 0; /* Reduced top padding to reduce gap */
+  min-height: 80vh;
+  position: relative;
+}
+
+.human-care-experts::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(248, 249, 250, 0.4);
+  z-index: 1;
+}
+
+.human-care-experts .experts-container {
+  position: relative;
+  z-index: 2;
+}
+
+.experts-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.content-left {
+  flex: 1.2;
+  padding-right: 1rem;
+  max-width: 600px;
+}
+
+.experts-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2c5aa0, #20b2aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.content-text {
+  margin-bottom: 2.5rem;
+}
+
+.content-text p {
+  font-size: 1rem;
+  color: #000;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.find-doctor-btn {
+  background: linear-gradient(135deg, #2c5aa0, #4a90e2);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.find-doctor-btn:hover {
+  background: linear-gradient(135deg, #1e3d6f, #2c5aa0);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(44, 90, 160, 0.3);
+}
+
+.stats-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.expert-number-layout {
+  background: linear-gradient(135deg, #2c5aa0, #4a90e2, #20b2aa);
+  padding: 2rem;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  min-width: 280px;
+  box-shadow: 0 8px 30px rgba(44, 90, 160, 0.2);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.montserrat-Bold {
+  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+}
+
+.increment-count-anim {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: white;
+  display: block;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  padding-bottom: 4px;
+  padding-top: 4px;
+}
+
+.stat-item p {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.stat-line {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 1024px) {
+  .experts-container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  .content-left {
+    padding-right: 0;
+    text-align: center;
+  }
+  
+  .experts-title {
+    font-size: 2.5rem;
+  }
+  
+  .expert-number-layout {
+    padding: 1.5rem;
+    min-width: 260px;
+  }
+  
+  .increment-count-anim {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .human-care-experts {
+    padding: 3rem 0;
+  }
+  
+  .experts-container {
+    padding: 0 1rem;
+    gap: 2rem;
+  }
+  
+  .experts-title {
+    font-size: 2rem;
+  }
+  
+  .content-text p {
+    font-size: 0.9rem;
+  }
+  
+  .expert-number-layout {
+    padding: 1.2rem;
+    min-width: 240px;
+    gap: 1rem;
+  }
+  
+  .increment-count-anim {
+    font-size: 1.8rem;
+  }
+  
+  .stat-item p {
+    font-size: 0.65rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .human-care-experts {
+    padding: 1.5rem 0 2.5rem 0; /* Reduced top padding for mobile */
+  }
+  
+  .experts-container {
+    padding: 0 1rem;
+    gap: 1.5rem;
+  }
+  
+  .experts-title {
+    font-size: 1.5rem; /* Reduced for better mobile fit */
+    margin-bottom: 1.5rem;
+  }
+  
+  .content-text p {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+  
+  .expert-number-layout {
+    padding: 1.2rem;
+    min-width: 220px;
+    gap: 1rem;
+  }
+  
+  .increment-count-anim {
+    font-size: 1.8rem; /* Increased for better visibility */
+  }
+  
+  .stat-item p {
+    font-size: 0.65rem; /* Slightly increased for readability */
+  }
+  
+  .read-more-btn {
+    padding: 0.7rem 1.8rem;
+    font-size: 0.9rem;
+    min-height: 44px; /* iOS recommended touch target size */
+  }
+}
+
+/* Animation for numbers */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.increment-count-anim {
+  animation: countUp 0.8s ease-out;
+}
+
+/* Hover effects */
+.stat-item:hover .increment-count-anim {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.stat-item:hover p {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+/* Read More Button Styles */
+.read-more-container {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.read-more-btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: linear-gradient(135deg, #2c5aa0, #20b2aa);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(44, 90, 160, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.read-more-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.read-more-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(44, 90, 160, 0.4);
+  background: linear-gradient(135deg, #20b2aa, #2c5aa0);
+}
+
+.read-more-btn:hover::before {
+  left: 100%;
+}
+
+.read-more-btn:active {
+  transform: translateY(0);
+}
+
+/* Mobile Responsive for Read More Button */
+@media only screen and (max-width: 768px) {
+  .read-more-container {
+    margin-top: 1.5rem;
+    justify-content: center;
+  }
+  
+  .read-more-btn {
+    padding: 0.7rem 1.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .read-more-container {
+    margin-top: 1rem;
+  }
+  
+  .read-more-btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.85rem;
+  }
+}

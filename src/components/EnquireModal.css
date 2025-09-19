@@ -1,0 +1,344 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  color: #2c5aa0;
+}
+
+.enquire-form h2 {
+  font-size: 2rem;
+  color: #2c5aa0;
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
+
+.enquire-form p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #2c5aa0;
+  box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.2);
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #2c5aa0 0%, #20b2aa 100%);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  margin-top: 1.5rem;
+}
+
+.submit-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.success-message {
+  text-align: center;
+  padding: 2rem;
+}
+
+.success-icon {
+  color: #20b2aa;
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.success-icon svg {
+  width: 4rem;
+  height: 4rem;
+}
+
+.success-message h3 {
+  font-size: 1.8rem;
+  color: #20b2aa;
+  margin-bottom: 0.8rem;
+}
+
+.success-message p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .modal-overlay {
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+    margin: 0;
+    width: 95%;
+    max-width: none;
+    max-height: 80vh;
+    border-radius: 12px;
+    margin-top: auto;
+    margin-bottom: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .modal-close-btn {
+    top: 0.8rem;
+    right: 0.8rem;
+    font-size: 1.8rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .enquire-form h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .enquire-form p {
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+  }
+
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+
+  .form-group label {
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="tel"],
+  .form-group select,
+  .form-group textarea {
+    padding: 0.9rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    min-height: 48px; /* Better touch target */
+  }
+
+  .form-group textarea {
+    min-height: 100px;
+  }
+
+  .submit-btn {
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    min-height: 48px; /* Better touch target */
+    margin-top: 1.2rem;
+  }
+
+  .success-message {
+    padding: 1.5rem;
+  }
+
+  .success-icon {
+    font-size: 3rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .success-icon svg {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .success-message h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .success-message p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-overlay {
+    padding: 0.5rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-content {
+    padding: 1.2rem;
+    width: 98%;
+    max-height: 85vh;
+    border-radius: 8px;
+    margin-top: auto;
+    margin-bottom: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .modal-close-btn {
+    top: 0.6rem;
+    right: 0.6rem;
+    font-size: 1.6rem;
+    width: 36px;
+    height: 36px;
+  }
+
+  .enquire-form h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .enquire-form p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="tel"],
+  .form-group select,
+  .form-group textarea {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    min-height: 44px; /* Minimum touch target */
+  }
+
+  .form-group textarea {
+    min-height: 90px;
+  }
+
+  .submit-btn {
+    padding: 0.9rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    min-height: 44px; /* Minimum touch target */
+    margin-top: 1rem;
+  }
+
+  .success-message {
+    padding: 1.2rem;
+  }
+
+  .success-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .success-icon svg {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .success-message h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .success-message p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+}
+
+

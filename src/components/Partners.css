@@ -1,0 +1,193 @@
+/* Partners Section */
+.partners {
+  padding: 4rem 0;
+  background: #f8f9fa;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.partners-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.partners-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.partners-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #2c5aa0, #20b2aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: -0.5px;
+}
+
+.partners-subtitle {
+  font-size: 1.1rem;
+  color: #000;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Marquee Container */
+.partners-marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: white;
+  padding: 2rem 0;
+  border-radius: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.partners-track {
+  display: flex;
+  animation: scrollPartners 30s linear infinite;
+  gap: 2.5rem;
+  width: max-content;
+  align-items: center;
+}
+
+/* Partner Item */
+.partner-item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.partner-logo-container {
+  width: 160px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(32, 178, 170, 0.25), rgba(44, 90, 160, 0.18));
+  border-radius: 0;
+  padding: 1.2rem;
+  box-shadow: 0 4px 15px rgba(32, 178, 170, 0.25);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.partner-logo-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(32, 178, 170, 0.2), rgba(44, 90, 160, 0.15));
+  z-index: 1;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.partner-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  filter: grayscale(0%) opacity(0.8);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  z-index: 2;
+}
+
+.partner-item:hover .partner-logo {
+  filter: grayscale(0%) opacity(1) brightness(1.1) contrast(1.1);
+  transform: scale(1.2);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.partner-item:hover .partner-logo-container {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 20px 50px rgba(32, 178, 170, 0.35);
+  border: 3px solid rgba(32, 178, 170, 0.5);
+  background: linear-gradient(135deg, rgba(32, 178, 170, 0.4), rgba(44, 90, 160, 0.3));
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.partner-item:hover .partner-logo-container::before {
+  background: linear-gradient(135deg, rgba(32, 178, 170, 0.5), rgba(44, 90, 160, 0.4));
+  opacity: 0.8;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Marquee Animation */
+@keyframes scrollPartners {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+/* Pause animation on hover */
+.partners-marquee:hover .partners-track {
+  animation-play-state: paused;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .partners {
+    padding: 3rem 0;
+  }
+  
+  .partners-container {
+    padding: 0 1rem;
+  }
+  
+  .partners-title {
+    font-size: 2rem;
+  }
+  
+  .partners-subtitle {
+    font-size: 1rem;
+  }
+  
+  .partners-marquee {
+    padding: 1.5rem 0;
+  }
+  
+  .partner-logo-container {
+    width: 130px;
+    height: 85px;
+    padding: 1rem;
+  }
+  
+  .partners-track {
+    gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .partner-logo-container {
+    width: 110px;
+    height: 75px;
+    padding: 0.8rem;
+  }
+  
+  .partners-track {
+    gap: 1.5rem;
+  }
+  
+  .partner-item {
+    padding: 0 0.5rem;
+  }
+}
