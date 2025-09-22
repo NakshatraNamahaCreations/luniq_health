@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './CorporateHealth.css';
 import corporateHealthImage from '../assets/services_pictures/copporate_health.png';
-import corporateHealthBanner from '/corporate_health.jpg';
+import corporateHealthBanner from '../../public/corporate_health.jpg';
 
 const CorporateHealth: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);

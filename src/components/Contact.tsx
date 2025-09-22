@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './ContactPage.module.css';
 
 const Contact: React.FC = () => {
-  const apiKey = import.meta.env.VITE_BRAVO_API_KEY;
+  const api_key=import.meta.env.VITE_BRAVO_API_KEY;
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -46,7 +46,7 @@ const Contact: React.FC = () => {
         headers: {
           accept: "application/json",
           "content-type": "application/json",
-          "api-key": apiKey, // ⚠️ replace with your real key
+          "api-key": api_key // ⚠️ replace with your real key
         },
         body: JSON.stringify({
           sender: { name: "LUNIQ Health Website", email: "info@luniqhealth.com" }, // ✅ must be verified sender

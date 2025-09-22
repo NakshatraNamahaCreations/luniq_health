@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './AboutUs.css';
-import aboutUsBanner from '/about_us banner.jpg';
+import aboutUsBanner from '../../public/about_us banner.jpg';
 import case10 from '../assets/case_studies/case10.avif';
 import case2 from '../assets/case_studies/case2.avif';
 

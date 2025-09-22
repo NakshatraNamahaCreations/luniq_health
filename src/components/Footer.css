@@ -5,7 +5,6 @@
   color: white;
   overflow: hidden;
   min-height: 80vh;
-  text-align: left !important;
 }
 
 .footer-background {
@@ -32,7 +31,10 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(44, 90, 160, 0.85) 0%, rgba(32, 178, 170, 0.8) 50%, rgba(44, 90, 160, 0.85) 100%);
+  background: linear-gradient(135deg, 
+    rgba(44, 90, 160, 0.85) 0%, 
+    rgba(32, 178, 170, 0.8) 50%, 
+    rgba(44, 90, 160, 0.85) 100%);
   z-index: 2;
 }
 
@@ -298,7 +300,7 @@
     grid-template-columns: 2fr 1fr 1.5fr;
     gap: 2.5rem;
   }
-
+  
   .footer-section:last-child {
     grid-column: 1 / -1;
     margin-top: 2rem;
@@ -307,187 +309,157 @@
 
 @media screen and (max-width: 768px) {
   .footer {
-    min-height: auto;
-    /* Remove fixed height for mobile */
+    min-height: auto; /* Remove fixed height for mobile */
   }
-
+  
   .footer-content {
-    padding: 1rem 0 0.8rem;
-    /* Much more reduced padding for mobile */
+    padding: 1rem 0 0.8rem; /* Much more reduced padding for mobile */
   }
-
+  
   .footer-container {
     padding: 0 1rem;
   }
-
+  
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 0.5rem;
-    /* Further reduced gap for mobile */
+    gap: 0.5rem; /* Further reduced gap for mobile */
   }
 
   .footer-section:last-child {
-    margin-top: 0.5rem;
-    /* Reduced margin for mobile */
+    margin-top: 0.5rem; /* Reduced margin for mobile */
   }
-
+  
   .footer-title {
-    font-size: 1.2rem;
-    /* Much more reduced for mobile */
+    font-size: 1.2rem; /* Much more reduced for mobile */
     margin-bottom: 0.5rem;
   }
-
+  
   .footer-subtitle {
-    font-size: 1rem;
-    /* Increased size for mobile */
+    font-size: 1rem; /* Increased size for mobile */
     margin-bottom: 0.5rem;
   }
-
+  
   .footer-description {
-    font-size: 0.85rem;
-    /* Increased size for mobile */
+    font-size: 0.85rem; /* Increased size for mobile */
     margin-bottom: 0.6rem;
     line-height: 1.4;
   }
-
+  
   .footer-bottom-content {
     flex-direction: column;
     text-align: center;
-    gap: 0.8rem;
-    /* Much more reduced gap */
+    gap: 0.8rem; /* Much more reduced gap */
   }
-
+  
   .footer-bottom {
-    padding-top: 1rem;
-    /* Much more reduced bottom section padding */
+    padding-top: 1rem; /* Much more reduced bottom section padding */
     margin-top: 1rem;
   }
-
+  
   .footer-legal {
     justify-content: center;
     flex-wrap: wrap;
-    gap: 0.8rem;
-    /* Much more reduced gap */
+    gap: 0.8rem; /* Much more reduced gap */
   }
 }
 
 @media screen and (max-width: 480px) {
   .footer-content {
-    padding: 0.8rem 0 0.5rem;
-    /* Much more reduced padding for small mobile */
+    padding: 0.8rem 0 0.5rem; /* Much more reduced padding for small mobile */
   }
-
+  
   .footer-container {
     padding: 0 0.8rem;
   }
-
+  
   .footer-grid {
-    gap: 0.3rem;
-    /* Further reduced gap for small mobile */
+    gap: 0.3rem; /* Further reduced gap for small mobile */
   }
 
   .footer-section:last-child {
-    margin-top: 0.3rem;
-    /* Further reduced margin for small mobile */
+    margin-top: 0.3rem; /* Further reduced margin for small mobile */
   }
-
+  
   .footer-title {
-    font-size: 1rem;
-    /* Much more reduced for small mobile */
+    font-size: 1rem; /* Much more reduced for small mobile */
     margin-bottom: 0.4rem;
   }
-
+  
   .footer-subtitle {
-    font-size: 0.9rem;
-    /* Increased size for small mobile */
+    font-size: 0.9rem; /* Increased size for small mobile */
     margin-bottom: 0.4rem;
   }
-
+  
   .footer-description {
-    font-size: 0.8rem;
-    /* Increased size for small mobile */
+    font-size: 0.8rem; /* Increased size for small mobile */
     margin-bottom: 0.5rem;
     line-height: 1.3;
   }
-
+  
   .footer-links a {
     font-size: 0.8rem;
   }
-
+  
   .footer-links li {
-    margin-bottom: 0.4rem;
-    /* Much more reduced spacing between links */
+    margin-bottom: 0.4rem; /* Much more reduced spacing between links */
   }
-
+  
   .footer-contact p {
     font-size: 0.8rem;
   }
-
+  
   .contact-item-inline {
-    margin-bottom: 0.4rem;
-    /* Much more reduced spacing */
+    margin-bottom: 0.4rem; /* Much more reduced spacing */
   }
-
+  
   .contact-item-inline span {
-    font-size: 0.8rem;
-    /* Reduced contact text size */
+    font-size: 0.8rem; /* Reduced contact text size */
   }
-
+  
   .footer-contact-info {
-    gap: 0.6rem;
-    /* Much more reduced gap between contact items */
+    gap: 0.6rem; /* Much more reduced gap between contact items */
   }
-
+  
   .contact-item {
-    gap: 0.6rem;
-    /* Reduced gap in contact items */
+    gap: 0.6rem; /* Reduced gap in contact items */
   }
-
+  
   .icon-container {
-    width: 30px;
-    /* Reduced icon container size */
+    width: 30px; /* Reduced icon container size */
     height: 30px;
   }
-
+  
   .contact-icon-svg {
-    width: 16px;
-    /* Reduced icon size */
+    width: 16px; /* Reduced icon size */
     height: 16px;
   }
-
+  
   .contact-label {
-    font-size: 0.85rem;
-    /* Reduced contact label size */
+    font-size: 0.85rem; /* Reduced contact label size */
   }
-
+  
   .contact-detail {
-    font-size: 0.8rem;
-    /* Reduced contact detail size */
+    font-size: 0.8rem; /* Reduced contact detail size */
   }
-
+  
   .footer-bottom {
-    padding-top: 0.8rem;
-    /* Much more reduced bottom section padding */
+    padding-top: 0.8rem; /* Much more reduced bottom section padding */
     margin-top: 0.8rem;
   }
-
+  
   .footer-bottom-content {
-    gap: 0.6rem;
-    /* Much more reduced gap in bottom section */
+    gap: 0.6rem; /* Much more reduced gap in bottom section */
   }
-
+  
   .footer-copyright {
-    font-size: 0.8rem;
-    /* Reduced copyright text size */
+    font-size: 0.8rem; /* Reduced copyright text size */
   }
-
+  
   .footer-legal {
-    gap: 0.6rem;
-    /* Much more reduced gap between legal links */
+    gap: 0.6rem; /* Much more reduced gap between legal links */
   }
-
+  
   .footer-legal a {
-    font-size: 0.75rem;
-    /* Much more reduced legal link size */
+    font-size: 0.75rem; /* Much more reduced legal link size */
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Physiotherapy.css';
-import physioBanner from '/Physiotherapy.jpg';
+import physioBanner from '../../public/Physiotherapy.jpg';
 import physioServiceImage from '../assets/services_pictures/pysiotherapy.png';
 
 const Physiotherapy: React.FC = () => {

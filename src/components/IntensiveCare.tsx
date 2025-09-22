@@ -1,7 +1,7 @@
 import React from 'react';
 import './IntensiveCare.css';
 import intensiveCareImage from '../assets/services_pictures/intensive_care.png';
-import intensiveCareBanner from '/intensive_care.jpg';
+import intensiveCareBanner from '../../public/intensive_care.jpg';
 
 const IntensiveCare: React.FC = () => {
   return (

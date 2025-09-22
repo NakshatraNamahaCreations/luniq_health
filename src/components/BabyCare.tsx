@@ -1,5 +1,5 @@
 import babyCareImage from '../assets/services_pictures/babycare.png';
-import babyCareBanner from '/Baby_Care.jpg';
+import babyCareBanner from '../../public/Baby_Care.jpg';
 // import { useAppointment } from '../contexts/AppointmentContext';
 import './BabyCare.css';
 

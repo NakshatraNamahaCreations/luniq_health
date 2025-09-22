@@ -171,7 +171,7 @@ interface EnquireModalProps {
 }
 
 const EnquireModal: React.FC<EnquireModalProps> = ({ isOpen, onClose, serviceTitle }) => {
-  const apiKey = import.meta.env.VITE_BRAVO_API_KEY;
+  const api_key=import.meta.env.VITE_BRAVO_API_KEY;
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -218,9 +218,9 @@ const EnquireModal: React.FC<EnquireModalProps> = ({ isOpen, onClose, serviceTit
         method: "POST",
         headers: {
           "accept": "application/json",
-            "content-type": "application/json",
-            "api-key":apiKey , // ⚠️ replace with real API key
-        },
+          "content-type": "application/json",
+            "api-key": api_key, // ⚠️ replace with real API key
+          },
         body: JSON.stringify({
           sender: {
             name: "LUNIQ Health Website",
