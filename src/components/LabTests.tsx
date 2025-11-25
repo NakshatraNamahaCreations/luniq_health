@@ -1,10 +1,18 @@
 import React from 'react';
 import './LabTests.css';
 import labTestsBanner from '/lab_tests.jpg';
+import { Helmet } from "react-helmet";
 
 const LabTests: React.FC = () => {
   return (
     <div className="lab-tests-page">
+      <Helmet>
+        <title>Lab Tests at Home in Bengaluru – LUNIQ Health.</title>
+        <meta
+          name="description"
+          content="Book comprehensive lab tests at home in Bengaluru with NABL-certified labs. Fast collection, accurate reports – trust LUNIQ Health for your diagnostic needs."
+        />
+      </Helmet>
       
        {/* Hero Section */}
        <section className="baby-care-hero">

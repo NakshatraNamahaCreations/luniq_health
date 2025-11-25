@@ -163,6 +163,7 @@
 
 import React, { useState, useEffect } from 'react';
 import './EnquireModal.css';
+import { API_URL } from '../utils/api';
 
 interface EnquireModalProps {
   isOpen: boolean;
@@ -171,7 +172,6 @@ interface EnquireModalProps {
 }
 
 const EnquireModal: React.FC<EnquireModalProps> = ({ isOpen, onClose, serviceTitle }) => {
-  const api_key=import.meta.env.VITE_BRAVO_API_KEY;
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -179,6 +179,8 @@ const EnquireModal: React.FC<EnquireModalProps> = ({ isOpen, onClose, serviceTit
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
     if (isOpen) {
@@ -208,51 +210,104 @@ const EnquireModal: React.FC<EnquireModalProps> = ({ isOpen, onClose, serviceTit
       ...prev,
       [name]: value
     }));
+    // Clear error for this field when user starts typing
+    if (errors[name]) {
+      setErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
   };
+  const validateForm = (): { isValid: boolean; errors: Record<string, string> } => {
+    const newErrors: Record<string, string> = {};
 
-  const handleSubmit = async (e: React.FormEvent) => {
+    // Validate name - REQUIRED
+    if (!formData.name || !formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
+
+    // Validate phone - REQUIRED
+    if (!formData.phone || !formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required';
+    } else {
+      const phoneDigits = formData.phone.replace(/\D/g, '');
+      if (phoneDigits.length < 10) {
+        newErrors.phone = 'Please enter a valid 10-digit phone number';
+      }
+    }
+
+    // Validate service - REQUIRED
+    if (!formData.service || !formData.service.trim()) {
+      newErrors.service = 'Please select a service';
+    }
+
+    // Message is optional, no validation needed
+
+    setErrors(newErrors);
+    return { isValid: Object.keys(newErrors).length === 0, errors: newErrors };
+  };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    // Validate form before submission
+    const validation = validateForm();
+    if (!validation.isValid) {
+      // Scroll to first error field
+      const firstErrorField = Object.keys(validation.errors)[0];
+      if (firstErrorField) {
+        setTimeout(() => {
+          const errorElement = document.querySelector(`[name="${firstErrorField}"]`);
+          errorElement?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          (errorElement as HTMLElement)?.focus();
+        }, 100);
+      }
+      return;
+    }
+
+    setIsSubmitting(true);
+    setErrors({}); // Clear any previous errors
+
     try {
-      const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+      const response = await fetch(`${API_URL}/send-enquiry`, {
         method: "POST",
         headers: {
-          "accept": "application/json",
-          "content-type": "application/json",
-            "api-key": api_key, // ⚠️ replace with real API key
-          },
-        body: JSON.stringify({
-          sender: {
-            name: "LUNIQ Health Website",
-            email: "info@luniqhealth.com" // ✅ must be verified sender in Brevo
-          },
-          to: [
-            { email: "info@luniqhealth.com", name: "LUNIQ HEALTH" } // ✅ receiver
-          ],
-          subject: `New Enquiry: ${formData.service}`,
-          htmlContent: `
-            <h3>New Service Enquiry</h3>
-            <p><strong>Name:</strong> ${formData.name}</p>
-            <p><strong>Phone:</strong> ${formData.phone}</p>
-            <p><strong>Service Interested In:</strong> ${formData.service}</p>
-            <p><strong>Message:</strong><br/>${formData.message}</p>
-          `,
-        }),
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
 
-      if (response.ok) {
+      // Check if response is ok (status 200-299)
+      if (!response.ok) {
+        throw new Error(`Server error: ${response.status} ${response.statusText}`);
+      }
+
+      const result = await response.json();
+
+      if (result.success) {
         setIsSubmitted(true);
+        // Reset form
+        setFormData({
+          name: '',
+          phone: '',
+          service: serviceTitle || '',
+          message: ''
+        });
+        setErrors({});
+        
+        // Close modal after 3 seconds
         setTimeout(() => {
           onClose();
+          setIsSubmitted(false);
         }, 3000);
       } else {
-        const errorData = await response.json();
-        console.error("Brevo error:", errorData);
-        alert("Failed to send enquiry: " + (errorData.message || "Check console"));
+        setErrors({ submit: 'Failed to send enquiry. Please try again.' });
       }
     } catch (error) {
-      console.error("Error:", error);
-      alert("Error sending enquiry. Check console.");
+      console.error('Submission error:', error);
+      setErrors({ submit: 'An error occurred while submitting. Please try again.' });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -277,6 +332,12 @@ const EnquireModal: React.FC<EnquireModalProps> = ({ isOpen, onClose, serviceTit
             <h2>Enquire About Our Services</h2>
             <p>Fill out the form below to get more information about our healthcare services.</p>
 
+            {errors.submit && (
+              <div className="error-message" style={{ color: 'red', marginBottom: '1rem', padding: '0.75rem', backgroundColor: '#fee', borderRadius: '4px' }}>
+                {errors.submit}
+              </div>
+            )}
+
             <div className="form-group">
               <label htmlFor="name">Full Name *</label>
               <input 
@@ -286,9 +347,10 @@ const EnquireModal: React.FC<EnquireModalProps> = ({ isOpen, onClose, serviceTit
                 value={formData.name} 
                 onChange={handleInputChange} 
                 required 
+                className={errors.name ? 'error' : ''}
               />
+              {errors.name && <span className="error-text" style={{ color: 'red', fontSize: '0.875rem', display: 'block', marginTop: '0.25rem' }}>{errors.name}</span>}
             </div>
-
 
             <div className="form-group">
               <label htmlFor="phone">Phone Number *</label>
@@ -299,7 +361,9 @@ const EnquireModal: React.FC<EnquireModalProps> = ({ isOpen, onClose, serviceTit
                 value={formData.phone} 
                 onChange={handleInputChange} 
                 required 
+                className={errors.phone ? 'error' : ''}
               />
+              {errors.phone && <span className="error-text" style={{ color: 'red', fontSize: '0.875rem', display: 'block', marginTop: '0.25rem' }}>{errors.phone}</span>}
             </div>
 
             <div className="form-group">
@@ -310,6 +374,7 @@ const EnquireModal: React.FC<EnquireModalProps> = ({ isOpen, onClose, serviceTit
                 value={formData.service} 
                 onChange={handleInputChange} 
                 required
+                className={errors.service ? 'error' : ''}
               >
                 <option value="">Select a Service</option>
                 <option value="Trained Attendants">Trained Attendants</option>
@@ -323,6 +388,7 @@ const EnquireModal: React.FC<EnquireModalProps> = ({ isOpen, onClose, serviceTit
                 <option value="Corporate Health">Corporate Health</option>
                 <option value="General Inquiry">General Inquiry</option>
               </select>
+              {errors.service && <span className="error-text" style={{ color: 'red', fontSize: '0.875rem', display: 'block', marginTop: '0.25rem' }}>{errors.service}</span>}
             </div>
 
             <div className="form-group">
@@ -337,7 +403,9 @@ const EnquireModal: React.FC<EnquireModalProps> = ({ isOpen, onClose, serviceTit
               ></textarea>
             </div>
 
-            <button type="submit" className="submit-btn">Send Enquiry</button>
+            <button type="submit" className="submit-btn" disabled={isSubmitting}>
+              {isSubmitting ? 'Sending...' : 'Send Enquiry'}
+            </button>
           </form>
         )}
       </div>

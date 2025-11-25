@@ -3,11 +3,21 @@ import Navbar from './Navbar';
 import elderCareImage from '../assets/services_pictures/trained_caretakers.png';
 import elderCareBanner from '/Elder_Care.jpg';
 import './ElderCare.css';
+import { Helmet } from "react-helmet";
+
 
 const ElderCare = () => {
   return (
     <div>
       <Navbar />
+       {/* ✅ SEO Meta Tags */}
+       <Helmet>
+        <title>24×7 Elder Care Services at Home in Bengaluru – LUNIQ Health</title>
+        <meta
+          name="description"
+          content="LUNIQ Health offers compassionate elder-care at home in Bengaluru — certified trained attendants, 24×7 support, customised care plans and dignity-first service for seniors."
+        />
+      </Helmet>
       
       {/* Hero Section */}
       <section className="elder-hero">

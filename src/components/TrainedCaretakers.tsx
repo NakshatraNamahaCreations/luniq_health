@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './TrainedCaretakers.css';
 import trainedCaretakersImage from '../assets/services_pictures/trained_caretakers.png';
 import trainedCaretakersBanner from '/Trained_Caretakers.jpg';
+import { Helmet } from 'react-helmet';
 
 const TrainedCaretakers: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -13,6 +14,14 @@ const TrainedCaretakers: React.FC = () => {
 
   return (
     <div className="trained-caretakers-page">
+     
+      <Helmet>
+        <title>Trained Caretakers at Home – LUNIQ Health Bengaluru.</title>
+        <meta
+          name="description"
+          content="Professional, trained caretakers available at home in Bengaluru through LUNIQ Health — reliable elder care, attendant support, and peace of mind for you and your loved ones."
+        />
+      </Helmet>
       {/* Hero Section */}
    
 

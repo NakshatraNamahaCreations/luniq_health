@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import styles from './ContactPage.module.css';
+import { Helmet } from "react-helmet";
+import { API_URL } from '../utils/api';
 
 const Contact: React.FC = () => {
-  const api_key=import.meta.env.VITE_BRAVO_API_KEY;
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -11,6 +12,8 @@ const Contact: React.FC = () => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -18,68 +21,106 @@ const Contact: React.FC = () => {
       ...prev,
       [name]: value
     }));
+    // Clear error for this field when user starts typing
+    if (errors[name]) {
+      setErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
   };
 
-  // const handleSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   console.log('Form submitted:', formData);
-  //   setIsSubmitted(true);
+  const validateForm = (): { isValid: boolean; errors: Record<string, string> } => {
+    const newErrors: Record<string, string> = {};
 
-  //   setTimeout(() => {
-  //     setIsSubmitted(false);
-  //     setFormData({
-  //       name: '',
-  //       email: '',
-  //       phone: '',
-  //       subject: '',
-  //       message: ''
-  //     });
-  //   }, 3000);
-  // };
+    // Validate name - REQUIRED
+    if (!formData.name || !formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+    // Validate phone - OPTIONAL but validate format if provided
+    if (formData.phone && formData.phone.trim()) {
+      const phoneDigits = formData.phone.replace(/\D/g, '');
+      if (phoneDigits.length < 10) {
+        newErrors.phone = 'Please enter a valid 10-digit phone number';
+      }
+    }
+
+    // Validate subject - REQUIRED
+    if (!formData.subject || !formData.subject.trim()) {
+      newErrors.subject = 'Please select a subject';
+    }
+
+    // Validate message - REQUIRED
+    if (!formData.message || !formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    }
+
+    setErrors(newErrors);
+    return { isValid: Object.keys(newErrors).length === 0, errors: newErrors };
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
+
+    // Validate form before submission
+    const validation = validateForm();
+    if (!validation.isValid) {
+      // Scroll to first error field
+      const firstErrorField = Object.keys(validation.errors)[0];
+      if (firstErrorField) {
+        setTimeout(() => {
+          const errorElement = document.querySelector(`[name="${firstErrorField}"]`);
+          errorElement?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          (errorElement as HTMLElement)?.focus();
+        }, 100);
+      }
+      return;
+    }
+
+    setIsSubmitting(true);
+    setErrors({}); // Clear any previous errors
+
     try {
-      const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+      const response = await fetch(`${API_URL}/send-enquiry`, {
         method: "POST",
         headers: {
-          accept: "application/json",
-          "content-type": "application/json",
-          "api-key": api_key // ⚠️ replace with your real key
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          sender: { name: "LUNIQ Health Website", email: "info@luniqhealth.com" }, // ✅ must be verified sender
-          to: [{ email: "info@luniqhealth.com", name: "LUNIQ HEALTH" }],
-          subject: `New Contact Form: ${formData.subject}`,
-          htmlContent: `
-            <h3>New Contact Form Submission</h3>
-            <p><strong>Name:</strong> ${formData.name}</p>
-            <p><strong>Phone:</strong> ${formData.phone}</p>
-            <p><strong>Message:</strong><br/>${formData.message}</p>
-          `,
-        }),
+        body: JSON.stringify(formData),
       });
-  
-      if (response.ok) {
+
+      // Check if response is ok (status 200-299)
+      if (!response.ok) {
+        throw new Error(`Server error: ${response.status} ${response.statusText}`);
+      }
+
+      const result = await response.json();
+
+      if (result.success) {
         setIsSubmitted(true);
+        // Reset form
+        setFormData({
+          name: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+        setErrors({});
+        
+        // Reset success message after 3 seconds
         setTimeout(() => {
           setIsSubmitted(false);
-          setFormData({
-            name: "",
-            phone: "",
-            subject: "",
-            message: "",
-          });
         }, 3000);
       } else {
-        const errorData = await response.json();
-        console.error("Brevo error:", errorData);
-        alert("Failed to send message: " + (errorData.message || "Check console"));
+        setErrors({ submit: 'Failed to send message. Please try again.' });
       }
     } catch (error) {
-      console.error("Error:", error);
-      alert("Error sending message. Check console.");
+      console.error('Submission error:', error);
+      setErrors({ submit: 'An error occurred while submitting. Please try again.' });
+    } finally {
+      setIsSubmitting(false);
     }
   };
   
@@ -87,6 +128,14 @@ const Contact: React.FC = () => {
   
   return (
     <div className={styles.contactPage}>
+      {/* ✅ SEO Meta Tags */}
+      <Helmet>
+        <title>Contact LUNIQ Health – Home Healthcare in Bengaluru.</title>
+        <meta
+          name="description"
+          content="Get in touch with LUNIQ Health for 24×7 home healthcare services in Bengaluru. Reach us for nursing care, physiotherapy, elder care, or post-operative assistance at your doorstep."
+        />
+      </Helmet>
       {/* Hero Section */}
       <section className={styles.contactHero}>
         <div className={styles.heroContent}>
@@ -117,6 +166,11 @@ const Contact: React.FC = () => {
                 </div>
               ) : (
                 <form className={styles.contactForm} onSubmit={handleSubmit}>
+                  {errors.submit && (
+                    <div className="error-message" style={{ color: 'red', marginBottom: '1rem', padding: '0.75rem', backgroundColor: '#fee', borderRadius: '4px' }}>
+                      {errors.submit}
+                    </div>
+                  )}
                   <div className={styles.formRow}>
                     <div className={styles.formGroup}>
                       <label htmlFor="name">Full Name *</label>
@@ -128,7 +182,9 @@ const Contact: React.FC = () => {
                         onChange={handleInputChange}
                         required
                         placeholder="Enter your full name"
+                        className={errors.name ? 'error' : ''}
                       />
+                      {errors.name && <span className="error-text" style={{ color: 'red', fontSize: '0.875rem', display: 'block', marginTop: '0.25rem' }}>{errors.name}</span>}
                     </div>
                   </div>
 
@@ -142,7 +198,9 @@ const Contact: React.FC = () => {
                         value={formData.phone}
                         onChange={handleInputChange}
                         placeholder="Enter your phone number"
+                        className={errors.phone ? 'error' : ''}
                       />
+                      {errors.phone && <span className="error-text" style={{ color: 'red', fontSize: '0.875rem', display: 'block', marginTop: '0.25rem' }}>{errors.phone}</span>}
                     </div>
                     <div className={styles.formGroup}>
                       <label htmlFor="subject">Subject *</label>
@@ -152,6 +210,7 @@ const Contact: React.FC = () => {
                         value={formData.subject}
                         onChange={handleInputChange}
                         required
+                        className={errors.subject ? 'error' : ''}
                       >
                         <option value="">Select a subject</option>
                         <option value="general">General Inquiry</option>
@@ -167,6 +226,7 @@ const Contact: React.FC = () => {
                         <option value="appointment">Book Appointment</option>
                         <option value="other">Other</option>
                       </select>
+                      {errors.subject && <span className="error-text" style={{ color: 'red', fontSize: '0.875rem', display: 'block', marginTop: '0.25rem' }}>{errors.subject}</span>}
                     </div>
                   </div>
 
@@ -180,11 +240,13 @@ const Contact: React.FC = () => {
                       required
                       rows={6}
                       placeholder="Tell us how we can help you..."
+                      className={errors.message ? 'error' : ''}
                     ></textarea>
+                    {errors.message && <span className="error-text" style={{ color: 'red', fontSize: '0.875rem', display: 'block', marginTop: '0.25rem' }}>{errors.message}</span>}
                   </div>
 
-                  <button type="submit" className={styles.submitBtn}>
-                    Send Message
+                  <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
                 </form>
               )}

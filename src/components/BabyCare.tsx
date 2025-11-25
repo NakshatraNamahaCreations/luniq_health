@@ -2,10 +2,18 @@ import babyCareImage from '../assets/services_pictures/babycare.png';
 import babyCareBanner from '../../public/Baby_Care.jpg';
 // import { useAppointment } from '../contexts/AppointmentContext';
 import './BabyCare.css';
+import { Helmet } from "react-helmet";
 
 const BabyCare = () => {
   return (
     <div className="baby-care-page">
+      <Helmet>
+        <title>Baby Care Services at Home – LUNIQ Health Bengaluru.</title>
+        <meta
+          name="description"
+          content="Professional baby-care services at your home in Bengaluru by LUNIQ Health. Expert newborn & infant care, nutrition support, and 24×7 monitoring for your peace of mind."
+        />
+      </Helmet>
       {/* Hero Section */}
       <section className="baby-care-hero">
         <div className="baby-care-hero-image">

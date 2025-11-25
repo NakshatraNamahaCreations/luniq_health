@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './MedicalEquipment.css';
 import equipmentImage from '../assets/services_pictures/medical_equipment.png';
+import { Helmet } from "react-helmet"; 
 
 const MedicalEquipment: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -10,6 +11,15 @@ const MedicalEquipment: React.FC = () => {
   };
   return (
     <div className="medical-equipment-page">
+       {/* ✅ SEO Meta Tags */}
+       <Helmet>
+        <title>Medical Equipment Rental & Sales in Bengaluru | LUNIQ Health.
+        </title>
+        <meta
+          name="description"
+          content="Rent and buy hospital-grade medical equipment in Bengaluru with LUNIQ Health. From hospital beds to oxygen concentrators—quality, delivery & support under one roof."
+        />
+      </Helmet>
       {/* Hero Section */}
       
       <section className="baby-care-hero">

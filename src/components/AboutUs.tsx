@@ -1,6 +1,8 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import './AboutUs.css';
+
 import aboutUsBanner from '../../public/about_us banner.jpg';
 import case10 from '../assets/case_studies/case10.avif';
 import case2 from '../assets/case_studies/case2.avif';
@@ -8,6 +10,13 @@ import case2 from '../assets/case_studies/case2.avif';
 const AboutUs: React.FC = () => {
   return (
     <div className="about-us">
+      <Helmet>
+        <title>About LUNIQ Health – Bengaluru Home Healthcare</title>
+        <meta
+          name="description"
+          content="Learn about LUNIQ Health’s mission, team and services — delivering compassionate home healthcare across Bengaluru with excellence and reliability."
+        />
+      </Helmet>
       {/* Sticky Background Text */}
       <div className="sticky-background-text">
         <div className="sticky-text-content">

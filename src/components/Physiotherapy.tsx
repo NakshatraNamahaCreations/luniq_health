@@ -2,11 +2,19 @@ import React from 'react';
 import './Physiotherapy.css';
 import physioBanner from '../../public/Physiotherapy.jpg';
 import physioServiceImage from '../assets/services_pictures/pysiotherapy.png';
+import { Helmet } from "react-helmet"; 
 
 const Physiotherapy: React.FC = () => {
 
   return (
     <div className="physiotherapy-page">
+       <Helmet>
+        <title>Physiotherapy at Home in Bengaluru – LUNIQ Health.</title>
+        <meta
+          name="description"
+          content="Receive expert in-home physiotherapy services in Bengaluru from LUNIQ Health—personalized treatment, pain relief & faster recovery at your doorstep."
+        />
+      </Helmet>
       {/* Hero Section */}
       <section className="physio-hero">
         <div className="physio-hero-image">

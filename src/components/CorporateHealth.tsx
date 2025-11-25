@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './CorporateHealth.css';
 import corporateHealthImage from '../assets/services_pictures/copporate_health.png';
 import corporateHealthBanner from '../../public/corporate_health.jpg';
+import { Helmet } from "react-helmet"; 
 
 const CorporateHealth: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -11,6 +12,15 @@ const CorporateHealth: React.FC = () => {
   };
   return (
     <div className="corporate-health-page">
+      {/* ✅ SEO Meta Tags */}
+      <Helmet>
+        <title>Corporate Health Services in Bengaluru | LUNIQ Health.</title>
+        <meta
+          name="description"
+          content="LUNIQ Health delivers tailored corporate health solutions in Bengaluru—from wellness programs and health screenings to on-site medical support—keeping your workforce healthy and productive."
+        />
+      </Helmet>
+
       {/* Hero Section */}
       <section className="corporate-health-hero">
         <div className="corporate-health-hero-image">

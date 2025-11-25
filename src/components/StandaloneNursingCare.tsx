@@ -1,10 +1,19 @@
 import React from 'react';
 import './StandaloneNursingCare.css';
 import nursingImage from '../assets/services_pictures/nursing.png';
+import { Helmet } from "react-helmet";  
 
 const StandaloneNursingCare: React.FC = () => {
   return (
     <div className="nursing-care-page">
+       {/* ✅ SEO Meta Tags */}
+       <Helmet>
+        <title>24×7 Home Nursing Care in Bengaluru – LUNIQ Health</title>
+        <meta
+          name="description"
+          content="Get professional, trained in-home nursing care in Bengaluru from LUNIQ Health. From post-surgery support to elderly assistance, our nurses bring hospital-grade care to your doorstep."
+        />
+      </Helmet>
       {/* Hero Section */}
       <section className="nursing-hero">
         <img src="/nursing_banner.jpg" alt="Nursing Care Banner" className="hero-bg-image" />

@@ -2,10 +2,18 @@ import React from 'react';
 import './IntensiveCare.css';
 import intensiveCareImage from '../assets/services_pictures/intensive_care.png';
 import intensiveCareBanner from '../../public/intensive_care.jpg';
+import { Helmet } from 'react-helmet';
 
 const IntensiveCare: React.FC = () => {
   return (
     <div className="intensive-care-page">
+      {/* ✅ SEO Meta Tags */}
+      <Helmet>
+        <title>24×7 Intensive Home Care Services in Bengaluru – LUNIQ Health.</title>
+        <meta
+          name="description"
+          content="LUNIQ Health provides round-the-clock intensive care at home in Bengaluru, with experienced ICU-trained nurses, medical monitoring and personalised support for critical recovery." />
+      </Helmet>
       {/* Hero Section */}
       <section className="intensive-care-hero">
         <div className="intensive-care-hero-image">
