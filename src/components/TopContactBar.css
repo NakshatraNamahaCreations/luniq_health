@@ -72,6 +72,7 @@
   display: flex;
   gap: 0.8rem;
   align-items: center;
+  margin-right: 4rem;
 }
 
 .social-icon-top {
@@ -125,6 +126,7 @@
   
   .social-icons-top {
     gap: 0.6rem;
+    margin-right: 2rem;
   }
   
   .social-icon-top {
@@ -170,6 +172,7 @@
   .social-icons-top {
     gap: 0.5rem;
     align-self: flex-end;
+    margin-right: 1.5rem;
   }
   
   .social-icon-top {
