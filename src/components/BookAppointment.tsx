@@ -100,12 +100,24 @@ const BookAppointment: React.FC = () => {
         body: JSON.stringify(formData),
       });
 
-      // Check if response is ok (status 200-299)
-      if (!response.ok) {
-        throw new Error(`Server error: ${response.status} ${response.statusText}`);
+      // Try to parse response even if status is not ok
+      let result;
+      try {
+        result = await response.json();
+      } catch (parseError) {
+        // If response is not JSON, use status text
+        if (!response.ok) {
+          throw new Error(`Server error: ${response.status} ${response.statusText}. Please try again later or contact us directly.`);
+        }
+        throw new Error('Invalid response from server. Please try again.');
       }
 
-      const result = await response.json();
+      // Check if response is ok (status 200-299)
+      if (!response.ok) {
+        // Try to get error message from response
+        const errorMessage = result?.message || result?.error || `Server error: ${response.status} ${response.statusText}`;
+        throw new Error(errorMessage);
+      }
 
       if (result.success) {
         setIsSubmitted(true);
@@ -119,11 +131,16 @@ const BookAppointment: React.FC = () => {
         });
         setErrors({});
       } else {
-        setErrors({ submit: 'Failed to submit appointment. Please try again.' });
+        const errorMessage = result?.message || result?.error || 'Failed to submit appointment. Please try again.';
+        setErrors({ submit: errorMessage });
       }
     } catch (error) {
       console.error('Submission error:', error);
-      setErrors({ submit: 'An error occurred while submitting. Please try again.' });
+      // Extract error message from error object
+      const errorMessage = error instanceof Error 
+        ? error.message 
+        : 'An error occurred while submitting. Please try again or contact us directly at info@luniqhealth.com';
+      setErrors({ submit: errorMessage });
     } finally {
       setIsSubmitting(false);
     }
