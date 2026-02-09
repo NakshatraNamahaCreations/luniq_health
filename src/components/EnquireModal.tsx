@@ -164,6 +164,7 @@
 import React, { useState, useEffect } from 'react';
 import './EnquireModal.css';
 import { API_URL } from '../utils/api';
+import ServiceSelect from './ServiceSelect';
 
 interface EnquireModalProps {
   isOpen: boolean;
@@ -383,36 +384,18 @@ const EnquireModal: React.FC<EnquireModalProps> = ({ isOpen, onClose, serviceTit
               {errors.phone && <span className="error-text" style={{ color: 'red', fontSize: '0.875rem', display: 'block', marginTop: '0.25rem' }}>{errors.phone}</span>}
             </div>
 
-            <div className="form-group">
-              <label htmlFor="service">Service Interested In *</label>
-              <select 
-                id="service" 
-                name="service" 
-                value={formData.service} 
-                onChange={handleInputChange} 
-                required
-                className={errors.service ? 'error' : ''}
-              >
-                <option value="">Select a Service</option>
-                <option value="Trained Attendants">Trained Attendants</option>
-                <option value="Nursing Care">Nursing Care</option>
-                <option value="Physiotherapy">Physiotherapy</option>
-                <option value="Medical Equipment">Medical Equipment</option>
-                <option value="Critical Care">Critical Care</option>
-                <option value="Baby Care">Baby Care</option>
-                <option value="Elder Care">Elder Care</option>
-                <option value="Lab Testing">Lab Testing</option>
-                <option value="Corporate Health">Corporate Health</option>
-                <option value="General Inquiry">General Inquiry</option>
-              </select>
-              {errors.service && <span className="error-text" style={{ color: 'red', fontSize: '0.875rem', display: 'block', marginTop: '0.25rem' }}>{errors.service}</span>}
-            </div>
+            <ServiceSelect
+              value={formData.service}
+              onChange={handleInputChange}
+              error={errors.service}
+            />
 
             <div className="form-group">
-              <label htmlFor="message">Message</label>
+              <label htmlFor="message">Message *</label>
               <textarea 
                 id="message" 
                 name="message" 
+                required
                 value={formData.message} 
                 onChange={handleInputChange} 
                 rows={4}

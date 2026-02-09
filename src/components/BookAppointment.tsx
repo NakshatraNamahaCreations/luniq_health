@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './BookAppointment.css';
 import { API_URL } from '../utils/api';
+import DepartmentSelect from './DepartmentSelect';
 
 const BookAppointment: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -64,6 +65,11 @@ const BookAppointment: React.FC = () => {
     // Validate department - REQUIRED
     if (!formData.department || !formData.department.trim()) {
       newErrors.department = 'Please select a department';
+    }
+
+    // Validate message - REQUIRED
+    if (!formData.message || !formData.message.trim()) {
+      newErrors.message = 'Message is required';
     }
 
     setErrors(newErrors);
@@ -147,19 +153,6 @@ const BookAppointment: React.FC = () => {
   };
   
 
-  const departments = [
-    
-    'Nursing Care',
-    'Lab Tests',
-    'Medical Equipment',
-    'Physiotherapy',
-    'Elder Care',
-    'Baby Care',
-    'Intensive Care',
-    'Corporate Health',
-    'Trained Caretakers'
-  ];
-
   return (
     <div className="book-appointment-page">
       <div className="appointment-container">
@@ -240,35 +233,28 @@ const BookAppointment: React.FC = () => {
                 />
                 {errors.appointmentDate && <span className="error-text">{errors.appointmentDate}</span>}
               </div>
-              <div className="form-group">
-                <label htmlFor="department">
-                  Department <span style={{ color: 'red' }}>*</span>
-                </label>
-                <select
-                  id="department"
-                  name="department"
-                  value={formData.department}
-                  onChange={handleInputChange}
-                  required
-                  className={errors.department ? 'error' : ''}
-                >
-                  <option value="">Select Department</option>
-                  {departments.map((dept, index) => (
-                    <option key={index} value={dept}>{dept}</option>
-                  ))}
-                </select>
-                {errors.department && <span className="error-text">{errors.department}</span>}
-              </div>
+              <DepartmentSelect
+                value={formData.department}
+                onChange={handleInputChange}
+                error={errors.department}
+              />
             </div>
 
             <div className="form-group full-width">
+              <label htmlFor="message">
+                Message <span style={{ color: 'red' }}>*</span>
+              </label>
               <textarea
+                id="message"
                 name="message"
                 value={formData.message}
+                required
                 onChange={handleInputChange}
-                placeholder="Message (Optional)"
+                placeholder="Your Message"
                 rows={4}
+                className={errors.message ? 'error' : ''}
               ></textarea>
+              {errors.message && <span className="error-text">{errors.message}</span>}
             </div>
 
             <div className="form-actions">

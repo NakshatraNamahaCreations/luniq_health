@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './ContactPage.module.css';
 import { Helmet } from "react-helmet";
 import { API_URL } from '../utils/api';
+import SubjectSelect from './SubjectSelect';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -219,32 +220,11 @@ const Contact: React.FC = () => {
                       />
                       {errors.phone && <span className="error-text" style={{ color: 'red', fontSize: '0.875rem', display: 'block', marginTop: '0.25rem' }}>{errors.phone}</span>}
                     </div>
-                    <div className={styles.formGroup}>
-                      <label htmlFor="subject">Subject *</label>
-                      <select
-                        id="subject"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleInputChange}
-                        required
-                        className={errors.subject ? 'error' : ''}
-                      >
-                        <option value="">Select a subject</option>
-                        <option value="general">General Inquiry</option>
-                        <option value="nursing">Nursing Services</option>
-                        <option value="caretaker">Care Taker Services</option>
-                        {/* <option value="doctor">Doctor Consultation</option> */}
-                        <option value="lab">Lab Tests</option>
-                        <option value="equipment">Medical Equipment</option>
-                        <option value="elder">Elder Care</option>
-                        <option value="baby">Baby Care</option>
-                        <option value="physiotherapy">Physiotherapy</option>
-                        <option value="corporate">Corporate Health</option>
-                        <option value="appointment">Book Appointment</option>
-                        <option value="other">Other</option>
-                      </select>
-                      {errors.subject && <span className="error-text" style={{ color: 'red', fontSize: '0.875rem', display: 'block', marginTop: '0.25rem' }}>{errors.subject}</span>}
-                    </div>
+                    <SubjectSelect
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      error={errors.subject}
+                    />
                   </div>
 
                   <div className={styles.formGroup}>
@@ -287,7 +267,7 @@ const Contact: React.FC = () => {
                 <h4 className={styles.sectionSubtitle}>Contact Us</h4>
                 <ul className={styles.contactList}>
                   <li>Mobile: +91 6366996697 / +91 6366334510</li>
-                  <li>Phone: +91 6366996697 / +91 6366334510</li>
+                  {/* <li>Phone: +91 6366996697 / +91 6366334510</li> */}
                   <li>info@luniqhealth.com</li>
                 </ul>
               </div>
@@ -296,7 +276,7 @@ const Contact: React.FC = () => {
                 <h4 className={styles.sectionSubtitle}>Locate Us</h4>
                 <ul className={styles.locationList}>
                   <li>Corporate Address: LUNIQ HEALTH PVT LTD, Techno Park Building, 34 building number, 2nd Floor, 80 Feet Road, AVS Compound, Koramangala Bangalore-560034</li>
-                  <li>Registered Address: Techno Park Building, 34 building number, 2nd Floor, 80 Feet Road, AVS Compound, Koramangala Bangalore-560034</li>
+                  {/* <li>Registered Address: Techno Park Building, 34 building number, 2nd Floor, 80 Feet Road, AVS Compound, Koramangala Bangalore-560034</li> */}
                 </ul>
               </div>
             </div>

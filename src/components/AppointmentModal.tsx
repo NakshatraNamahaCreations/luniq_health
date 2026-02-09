@@ -147,10 +147,11 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
             </div>
 
             <div className="form-group">
-              <label htmlFor="message">Additional Information</label>
+              <label htmlFor="message">Additional Information *</label>
               <textarea
                 id="message"
                 name="message"
+                required
                 value={formData.message}
                 onChange={handleInputChange}
                 placeholder="Any additional information or special requirements"
